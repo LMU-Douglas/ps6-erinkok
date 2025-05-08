@@ -22,6 +22,22 @@ def is_power_balanced(n, party):
     Note that the output is case-sensitive, and must match the format exactly without leading or trailing whitespace.
     """
     
-    return None # TODO: Implement this function
+    if isinstance(party, str):
+        seats = list(map(int, party.split()))
+    else:
+        seats = list(map(int, party))
+
+    c1 = seats.count(1)
+    c2 = seats.count(2)
+    c3 = seats.count(3)
+
+    if c1 > c2 + c3:
+        return "Future One Dominates"
+    if c2 > c1 + c3:
+        return "Two-gether Dominates"
+    if c3 > c1 + c2:
+        return "Triple Harmony Dominates"
+
+    return "Power Balanced"
 
 # Run pytest test_problem_1.py to test the function
