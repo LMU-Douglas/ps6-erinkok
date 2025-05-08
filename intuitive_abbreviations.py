@@ -18,6 +18,15 @@ def is_intuitive(element, abreviation):
     TODO: For each test case, if all the letters in the abbreviation appear in the name, return a line containing the string “YES”. Otherwise, return a line containing the string “NO”.
     """
 
-    return None # TODO: Implement this function
+    element_lower = element.lower()
+    for char in abreviation.lower():
+        if char not in element_lower:
+            return "NO"
+    return "YES"
+
+# Sample Problem
+if __name__ == "__main__":
+    print(is_intuitive("Oxygen", "Ogn"))  # Print YES
+    print(is_intuitive("Oxygen", "Od"))   # Print NO
 
 # Run pytest test_problem_2.py to test the function
